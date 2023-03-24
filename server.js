@@ -4,11 +4,21 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const expect = require('chai').expect;
 const cors = require('cors');
+const mongoose = require('mongoose');
 require('dotenv').config();
+
 
 const apiRoutes = require('./routes/api.js');
 const fccTestingRoutes = require('./routes/fcctesting.js');
 const runner = require('./test-runner');
+
+mongoose.connect(process.env.DB_URL, { useNewUrlParser: true, useUnifiedTopology: true }).then(() => {
+  console.log('Database Connected Succesfully!');
+}).catch((err) => {
+  console.log('Error Connecting Database');
+  console.log(err);
+})
+
 
 let app = express();
 
