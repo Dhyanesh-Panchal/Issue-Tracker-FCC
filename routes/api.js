@@ -1,7 +1,7 @@
 'use strict';
 
 const { Project, findProject, createProject, getCorrespondingIssues } = require('../models/Project');
-const { Issues } = require('../models/Issue');
+const { Issues, createIssue } = require('../models/Issue');
 
 module.exports = function (app) {
 
@@ -13,7 +13,7 @@ module.exports = function (app) {
       let issueParams = req.query;
 
       const myIssues = await getCorrespondingIssues(project, issueParams);
-
+      res.json(myIssues)
 
 
 
@@ -36,17 +36,8 @@ module.exports = function (app) {
         return;
       }
 
-      const newIssue = new Issues({
-        issue_title: issue_title,
-        issue_text: issue_text,
-        created_on: new Date(),
-        updated_on: new Date(),
-        created_by: created_by,
-        assigned_to: assigned_to || "",
-        open: true,
-        status_text: status_text || ""
-      })
-      newIssue.save();
+      const newIssue = await createIssue(issue_title, issue_text, created_by, assigned_to, status_text);
+      console.log(newIssue);
 
       let myProject = await findProject(project);
 
