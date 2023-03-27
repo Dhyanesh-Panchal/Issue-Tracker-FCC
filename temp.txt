@@ -1,0 +1,38 @@
+// let updated = await updateIssue(project, issueParams);
+
+      // try {
+      //   Project.findOne({ name: project }, (err, projectData) => {
+      //     if (err || !projectData) {
+      //       res.json({ error: 'could not update', '_id': issueParams._id });
+      //       return;
+      //     }
+      //     else {
+      //       let issuedData = projectData.issues.id(issueParams._id);
+      //       if (!issuedData) {
+      //         res.json({ error: 'could not update', '_id': issueParams._id });
+      //         return;
+      //       }
+
+      //       issuedData.issue_title = issueParams.issue_title || issuedData.issue_title;
+      //       issuedData.issue_text = issueParams.issue_text || issuedData.issue_text;
+      //       issuedData.created_by = issueParams.created_by || issuedData.created_by;
+      //       issuedData.assigned_to = issueParams.assigned_to || issuedData.assigned_to;
+      //       issuedData.status_text = issueParams.status_text || issuedData.status_text;
+      //       issuedData.open = issueParams.open || issuedData.open;
+      //       issuedData.updated_on = new Date();
+
+      //       projectData.save((err, data) => {
+      //         if (err || !data) {
+      //           res.json({ error: 'could not update', '_id': issueParams._id });
+      //           return;
+      //         }
+      //         else {
+      //           res.json({ result: 'successfully updated', '_id': issueParams._id });
+      //           return;
+      //         }
+      //       })
+      //     }
+      //   })
+      // } catch (err) {
+      //   console.log(err)
+      // }

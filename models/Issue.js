@@ -32,7 +32,7 @@ const createIssue = async (title, text, created_by, assigned_to, status_text) =>
         console.log(err)
     }
     console.log('new Issue Created');
-    console.log(myIssue)
+    // console.log(myIssue)
     return myIssue;
 }
 
