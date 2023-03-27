@@ -1,6 +1,6 @@
 'use strict';
 
-const { Project, findProject, createProject, getCorrespondingIssues, updateIssue } = require('../models/Project');
+const { Project, findProject, createProject, getCorrespondingIssues } = require('../models/Project');
 const { Issues, createIssue } = require('../models/Issue');
 const { ObjectId } = require('mongodb');
 

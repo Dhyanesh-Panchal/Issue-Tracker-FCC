@@ -56,47 +56,47 @@ const getCorrespondingIssues = async (projectName, { _id, issue_title, issue_tex
     return myIssues;
 }
 
-const updateIssue = async (projectName, issueParams) => {
-    let myProject = await newProject.findOne({ name: projectName });
-    let correspondingIssue = await Issues.findById(issueParams._id);
-    let myProjectIssue = myProject.issues.id(issueParams._id);
+// const updateIssue = async (projectName, issueParams) => {
+//     let myProject = await newProject.findOne({ name: projectName });
+//     let correspondingIssue = await Issues.findById(issueParams._id);
+//     let myProjectIssue = myProject.issues.id(issueParams._id);
 
-    console.log('Corresponding project', myProject);
-    // ISSUE DONT EXIST, WRONG ID
-    if (!correspondingIssue || !myProject) {
-        return null;
-    }
+//     console.log('Corresponding project', myProject);
+//     // ISSUE DONT EXIST, WRONG ID
+//     if (!correspondingIssue || !myProject) {
+//         return null;
+//     }
 
-    myProjectIssue.issue_title = issueParams.issue_title || myProjectIssue.issue_title;
-    myProjectIssue.issue_text = issueParams.issue_text || myProjectIssue.issue_text;
-    myProjectIssue.created_by = issueParams.created_by || myProjectIssue.created_by;
-    myProjectIssue.assigned_to = issueParams.assigned_to || myProjectIssue.assigned_to;
-    myProjectIssue.status_text = issueParams.status_text || myProjectIssue.status_text;
-    myProjectIssue.open = issueParams.open || myProjectIssue.open;
-    myProjectIssue.updated_on = new Date();
+//     myProjectIssue.issue_title = issueParams.issue_title || myProjectIssue.issue_title;
+//     myProjectIssue.issue_text = issueParams.issue_text || myProjectIssue.issue_text;
+//     myProjectIssue.created_by = issueParams.created_by || myProjectIssue.created_by;
+//     myProjectIssue.assigned_to = issueParams.assigned_to || myProjectIssue.assigned_to;
+//     myProjectIssue.status_text = issueParams.status_text || myProjectIssue.status_text;
+//     myProjectIssue.open = issueParams.open || myProjectIssue.open;
+//     myProjectIssue.updated_on = new Date();
 
-    correspondingIssue.issue_title = issueParams.issue_title || correspondingIssue.issue_title;
-    correspondingIssue.issue_text = issueParams.issue_text || correspondingIssue.issue_text;
-    correspondingIssue.created_by = issueParams.created_by || correspondingIssue.created_by;
-    correspondingIssue.assigned_to = issueParams.assigned_to || correspondingIssue.assigned_to;
-    correspondingIssue.status_text = issueParams.status_text || correspondingIssue.status_text;
-    correspondingIssue.open = issueParams.open || correspondingIssue.open;
-    correspondingIssue.updated_on = new Date();
+//     correspondingIssue.issue_title = issueParams.issue_title || correspondingIssue.issue_title;
+//     correspondingIssue.issue_text = issueParams.issue_text || correspondingIssue.issue_text;
+//     correspondingIssue.created_by = issueParams.created_by || correspondingIssue.created_by;
+//     correspondingIssue.assigned_to = issueParams.assigned_to || correspondingIssue.assigned_to;
+//     correspondingIssue.status_text = issueParams.status_text || correspondingIssue.status_text;
+//     correspondingIssue.open = issueParams.open || correspondingIssue.open;
+//     correspondingIssue.updated_on = new Date();
 
-    myProject.save()
-
-
+//     myProject.save()
 
 
 
-}
+
+
+// }
 
 const Project = {
     Project: newProject,
     findProject: findProject,
     createProject: createProject,
-    getCorrespondingIssues: getCorrespondingIssues,
-    updateIssue: updateIssue
+    getCorrespondingIssues: getCorrespondingIssues
+    // updateIssue: updateIssue
 }
 
 
